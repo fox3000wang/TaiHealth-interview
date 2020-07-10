@@ -1,0 +1,179 @@
+<html>
+
+<head>
+  <style>
+    /* 第6题的css */
+    body {
+      overflow: hidden;
+    }
+
+    .layout {
+      display: flex;
+      width: 100%;
+      height: 200px;
+    }
+
+    .sider {
+      width: 100px;
+      height: 200px;
+      background: skyblue;
+    }
+
+    .main {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .header {
+      width: 100%;
+      height: 30px;
+      background: springgreen;
+    }
+
+    .footer {
+      width: 100%;
+      height: 30px;
+      background: burlywood;
+    }
+
+    .content {
+      flex: 1;
+      background: darkcyan;
+    }
+
+    /* 第8题css */
+    .image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 300px;
+      background: #aaa;
+    }
+
+    .btns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+
+  <script>
+    // 第8题的js
+    const add = () => {
+      baidu.width *= 1.1;
+      baidu.height *= 1.1;
+    }
+    const dec = () => {
+      baidu.width /= 1.1;
+      baidu.height /= 1.1;
+    }
+  </script>
+</head>
+
+<body>
+
+  <div>
+    <div class='layout'>
+      <div class='sider'></div>
+      <div class='main'>
+        <div class='header'></div>
+        <div class='content'></div>
+        <div class='footer'></div>
+      </div>
+    </div>
+
+    <div class="image">
+      <img id="baidu" src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"
+        οnlοad="this.src='loading.gif"></img>
+    </div>
+    <div class="btns">
+      <button onclick="add()">+</button>
+      <button onclick="dec()">-</button>
+    </div>
+
+
+  </div>
+
+  <script>
+    const a = () => {
+      for (var i = 0; i < 3; i++) {
+        setTimeout(() => console.log(i));
+      }
+      for (let i = 0; i < 3; i++) {
+        setTimeout(() => console.log(i));
+      }
+    };
+
+    const b = () => {
+      let c = {
+        greeting: 'Hey'
+      };
+      let d;
+      d = c;
+      c.greeting = 'Hello';
+      console.log(d.greeting);
+    };
+
+    const c = () => {
+      let a = 3;
+      let b = new Number(3);
+      let c = 3;
+      console.log(a == b);
+      console.log(a === b);
+      console.log(b === c);
+    }
+
+    const d = () => {
+      const items = ['a', 'b', 'c', 'd'];
+      for (let i in items) {
+        console.log(i);
+      }
+      for (let i of items) {
+        console.log(i);
+      }
+    };
+
+    const e = () => {
+      const myPromise = Promise.resolve(Promise.resolve("Promise!"));
+
+      function funcOne() {
+        myPromise.then(res => res).then(res => console.log(res));
+        setTimeout(() => console.log("Timeout!"));
+        console.log("Last line!");
+      }
+      async function funcTwo() {
+        const res = await myPromise;
+        console.log(await res);
+        setTimeout(() => console.log("Timeout!"));
+        console.log("Last line!");
+      }
+      funcOne();
+      funcTwo();
+    };
+
+    a();
+    b();
+    c();
+    d();
+    e();
+
+    // 第7题
+    const mul = x => {
+      let s = x;
+      let c = y => {
+        s *= y;
+        return c;
+      }
+      c.toString = () => s;
+      return c;
+    }
+    console.log(mul(2)(3)(4)); // 24
+    console.log(mul(4)(3)(4)); // 48
+  </script>
+</body>
+
+</html>
